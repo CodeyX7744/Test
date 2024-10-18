@@ -69,66 +69,90 @@
         </tbody> 
         </table> 
         <script>
-            var tds = document.querySelectorAll("td");
-            var ths = document.querySelectorAll("th");
+            let tds =  document.querySelectorAll("td");
+            
+            tds.forEach((td) => {
+                td.addEventListener("mouseover", function(e) {
+             
+                // td.style.backgroundColor = "yellow";
+                let tdSibling = td.parentElement.children;
+                tdSibling[0].style.backgroundColor = "yellow";
+               console.log(tdSibling)
+                
+            })
+            })
+        
+            
 
-            var cells = Array.prototype.slice.call(tds).concat(Array.prototype.slice.call(ths));
+            
 
-            var rows = document.querySelectorAll("tr");
+            // trs[0].cells[2].addEventListener("mouseover", function (e) {
+            //    e.target.style.backgroundColor = "yellow";
+            // });
 
-            [].forEach.call(
-            cells, 
-            function(el) {
-                el.addEventListener(
-                'mouseover', 
-                function() {
 
-                    var index = indexInParent(this);
+
+
+            // var tds = document.querySelectorAll("td");
+            // var ths = document.querySelectorAll("th");
+
+            // var cells = Array.prototype.slice.call(tds).concat(Array.prototype.slice.call(ths));
+
+            // var rows = document.querySelectorAll("tr");
+
+            // [].forEach.call(
+            // cells, 
+            // function(el) {
+            //     el.addEventListener(
+            //     'mouseover', 
+            //     function() {
+
+            //         var index = indexInParent(this);
                     
-                    for (var i = 0; i < rows.length; i++) {
-                    var cellsInThisRow = rows[i].getElementsByTagName("td");
+            //         for (var i = 0; i < rows.length; i++) {
+            //         var cellsInThisRow = rows[i].getElementsByTagName("td");
                     
-                    if (cellsInThisRow.length == 0) {
-                        cellsInThisRow = rows[i].getElementsByTagName("th");
-                    }
+            //         if (cellsInThisRow.length == 0) {
+            //             cellsInThisRow = rows[i].getElementsByTagName("th");
+            //         }
                     
-                    cellsInThisRow[index]
-                        .classList
-                        .add("hover");
-                    };  
+            //         cellsInThisRow[index]
+            //             .classList
+            //             .add("hover");
+            //         };  
                             
-                }, 
-                false
-                );
-            }
-            );
+            //     }, 
+            //     false
+            //     );
+            // }
+            // );
 
-            [].forEach.call(
-            cells, 
-            function(el) {
-                el.addEventListener(
-                'mouseout', 
-                function() {
-                    for (var i = 0; i < cells.length; i++) {
-                    cells[i]
-                        .classList
-                        .remove("hover");
-                    }
-                }, 
-                false
-                );
-            }
-            );
+            // [].forEach.call(
+            // cells, 
+            // function(el) {
+            //     el.addEventListener(
+            //     'mouseout', 
+            //     function() {
+            //         for (var i = 0; i < cells.length; i++) {
+            //         cells[i]
+            //             .classList
+            //             .remove("hover");
+            //         }
+            //     }, 
+            //     false
+            //     );
+            // }
+            // );
 
-            function indexInParent(node) {
-                var children = node.parentNode.childNodes;
-                var num = 0;
-                for (var i=0; i<children.length; i++) {
-                    if (children[i]==node) return num;
-                    if (children[i].nodeType==1) num++;
-                }
-                return -1;
-            }
+            // function indexInParent(node) {
+            //     var children = node.parentNode.childNodes;
+            //     var num = 0;
+            //     for (var i=0; i<children.length; i++) {
+            //         if (children[i]==node) return num;
+            //         if (children[i].nodeType==1) num++;
+            //     }
+            //     return -1;
+            // }
         </script>
 </body>
 </html>
